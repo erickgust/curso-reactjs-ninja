@@ -1,18 +1,20 @@
 'use strict';
 
-import { join } from 'path';
+const path = require('path');
 
-export const entry = join(__dirname, 'src', 'index');
-export const output = {
-  path: join(__dirname, 'dist'),
-  filename: 'bundle.js',
-  publicPath: '/static/'
-};
-export const module = {
-  loaders: [{
-    test: /\.js$/,
-    exclude: /node_modules/,
-    include: /src/,
-    loader: 'babel'
-  }]
+module.exports = {
+  entry: path.join(__dirname, 'src', 'index'),
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/static/'
+  },
+  module: {
+    loaders: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      include: /src/,
+      loader: 'babel'
+    }]
+  }
 };
