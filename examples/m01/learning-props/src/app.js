@@ -7,7 +7,9 @@ class App extends Component {
   render () {
     return (
       <div>
-        <Square />
+        {['red', 'green', 'blue'].map((color, key) => (
+          <Square color={color} key={key} />
+        ))}
       </div>
     )
   }
