@@ -2,21 +2,26 @@
 
 import React, { Component } from 'react'
 import Button from './button'
+import Square from './square'
 
 class App extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
-      counter: 0
+      color: 'blue'
     }
   }
 
-  render() {
+  render () {
     return (
       <div>
-        <Button handleClick={() => this.setState({ counter: this.state.counter + 1 })}>
-          {this.state.counter}
-        </Button>
+        <Square color={this.state.color} />
+
+        {['red', 'green', 'blue'].map((color, key) => (
+          <Button key={key} handleClick={() => this.setState({ color })}>
+            {color}
+          </Button>
+        ))}
       </div>
     )
   }
