@@ -1,27 +1,23 @@
 'use strict'
 
 import React, { Component } from 'react'
-import Button from './button'
-import Square from './square'
+import Timer from './timer'
 
 class App extends Component {
   constructor () {
     super()
     this.state = {
-      color: 'blue'
+      showTimer: true
     }
   }
 
   render () {
     return (
       <div>
-        <Square color={this.state.color} />
-
-        {['red', 'green', 'blue'].map((color, key) => (
-          <Button key={key} handleClick={() => this.setState({ color })}>
-            {color}
-          </Button>
-        ))}
+        {this.state.showTimer && <Timer />}
+        <button onClick={() => this.setState({ showTimer: !this.state.showTimer })}>
+          Show / Hide timer
+        </button>
       </div>
     )
   }
