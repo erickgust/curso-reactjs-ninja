@@ -14,14 +14,10 @@ class App extends Component {
     return (
       <div>
         <form>
-          <select
+          <textarea
             value={this.state.value}
             onChange={(e) => this.setState({ value: e.target.value })}
-          >
-            <option value='1'>Option 1</option>
-            <option value='2'>Option 2</option>
-            <option value='3'>Option 3</option>
-          </select>
+          />
         </form>
       </div>
     )
