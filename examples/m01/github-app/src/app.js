@@ -1,46 +1,48 @@
 'use strict'
 
 import React from 'react'
+import Actions from './components/actions'
+import Repos from './components/repos'
+import Search from './components/search'
+import User from './components/user'
 
 const App = () => (
   <div className='app'>
-    <div className='search-bar'>
-      <input type='search' placeholder='Digite o usuário' />
-    </div>
-
-    <div className='git-user'>
-      <img src='https://avatars.githubusercontent.com/u/83595333?v=4' />
-      <h1 className='username'>
-        <a href='https://github.com/erickgust'>Erick Gustavo</a>
-      </h1>
-
-      <ul className='user-info'>
-        <li>Repositórios: 13</li>
-        <li>Seguidores: 0</li>
-        <li>Seguindo: 3</li>
-      </ul>
-
-      <div className='user-actions'>
-        <button>Ver repositórios</button>
-        <button>Ver favoritos</button>
-      </div>
-
-      <div className='user-repos'>
-        <h2>Repositórios:</h2>
-        <ul>
-          <li><a href='#'>Nome do repositório</a></li>
-          <li><a href='#'>Nome do repositório</a></li>
-        </ul>
-      </div>
-
-      <div className='user-stars'>
-        <h2>Favoritos:</h2>
-        <ul>
-          <li><a href='#'>Nome do repositório</a></li>
-          <li><a href='#'>Nome do repositório</a></li>
-        </ul>
-      </div>
-    </div>
+    <Search />
+    <User />
+    <Actions />
+    <Repos
+      className='user-repos'
+      title='Repositórios'
+      repos={[
+        {
+          name: 'Nome do repositório',
+          url: '#',
+          id: 1
+        },
+        {
+          name: 'Nome do repositório',
+          url: '#',
+          id: 2
+        }
+      ]}
+    />
+    <Repos
+      className='user-stars'
+      title='Favoritos'
+      repos={[
+        {
+          name: 'Nome do repositório',
+          url: '#',
+          id: 1
+        },
+        {
+          name: 'Nome do repositório',
+          url: '#',
+          id: 2
+        }
+      ]}
+    />
   </div>
 )
 
