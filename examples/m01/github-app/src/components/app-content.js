@@ -5,45 +5,36 @@ import User from './user'
 import Search from './search'
 import Actions from './actions'
 import Repos from './repos'
+import { PropTypes } from 'prop-types'
 
-const AppContent = () => (
+const AppContent = ({ userInfo, repos, stars, handleSearch }) => (
   <div className='app'>
-    <Search />
-    <User />
-    <Actions />
-    <Repos
-      className='user-repos'
-      title='Repositórios'
-      repos={[
-        {
-          name: 'Nome do repositório',
-          url: '#',
-          id: 1
-        },
-        {
-          name: 'Nome do repositório',
-          url: '#',
-          id: 2
-        }
-      ]}
-    />
-    <Repos
-      className='user-stars'
-      title='Favoritos'
-      repos={[
-        {
-          name: 'Nome do repositório',
-          url: '#',
-          id: 1
-        },
-        {
-          name: 'Nome do repositório',
-          url: '#',
-          id: 2
-        }
-      ]}
-    />
+    <Search handleSearch={handleSearch} />
+    {!!userInfo && <User userInfo={userInfo} />}
+    {!!userInfo && <Actions />}
+    {
+      !!repos.length &&
+        <Repos
+          className='user-repos'
+          title='Repositórios'
+          repos={repos}
+        />
+    }
+    {
+      !!stars.length &&
+        <Repos
+          className='user-stars'
+          title='Favoritos'
+          repos={stars}
+        />
+    }
   </div>
 )
+
+AppContent.propTypes = {
+  userInfo: PropTypes.object,
+  repos: PropTypes.array.isRequired,
+  stars: PropTypes.array.isRequired
+}
 
 export default AppContent
