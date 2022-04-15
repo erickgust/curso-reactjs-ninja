@@ -9,7 +9,22 @@ class App extends Component {
     this.state = {
       userInfo: null,
       repos: [],
-      stars: []
+      starred: []
+    }
+  }
+
+  getRepos (type) {
+    return () => {
+      const username = this.state.userInfo.login
+      fetch(`https://api.github.com/users/${username}/${type}`)
+        .then(req => req.json())
+        .then(repos => this.setState({
+          [type]: repos.map((repo) => ({
+            name: repo.name,
+            url: repo.html_url,
+            id: repo.id
+          }))
+        }))
     }
   }
 
@@ -30,7 +45,9 @@ class App extends Component {
               repos: user.public_repos,
               followers: user.followers,
               following: user.following
-            }
+            },
+            repos: [],
+            starred: []
           })
         })
     }
@@ -41,8 +58,10 @@ class App extends Component {
       <AppContent
         userInfo={this.state.userInfo}
         repos={this.state.repos}
-        stars={this.state.stars}
+        stars={this.state.starred}
         handleSearch={(e) => this.handleSearch(e)}
+        getRepos={this.getRepos('repos')}
+        getStars={this.getRepos('starred')}
       />
     )
   }

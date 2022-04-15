@@ -7,11 +7,18 @@ import Actions from './actions'
 import Repos from './repos'
 import { PropTypes } from 'prop-types'
 
-const AppContent = ({ userInfo, repos, stars, handleSearch }) => (
+const AppContent = ({
+  userInfo,
+  repos,
+  stars,
+  handleSearch,
+  getRepos,
+  getStars
+}) => (
   <div className='app'>
     <Search handleSearch={handleSearch} />
     {!!userInfo && <User userInfo={userInfo} />}
-    {!!userInfo && <Actions />}
+    {!!userInfo && <Actions getRepos={getRepos} getStars={getStars} />}
     {
       !!repos.length &&
         <Repos
@@ -34,7 +41,10 @@ const AppContent = ({ userInfo, repos, stars, handleSearch }) => (
 AppContent.propTypes = {
   userInfo: PropTypes.object,
   repos: PropTypes.array.isRequired,
-  stars: PropTypes.array.isRequired
+  stars: PropTypes.array.isRequired,
+  handleSearch: PropTypes.func.isRequired,
+  getRepos: PropTypes.func.isRequired,
+  getStars: PropTypes.func.isRequired
 }
 
 export default AppContent
