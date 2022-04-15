@@ -11,12 +11,14 @@ const AppContent = ({
   userInfo,
   repos,
   stars,
+  isFetching,
   handleSearch,
   getRepos,
   getStars
 }) => (
   <div className='app'>
-    <Search handleSearch={handleSearch} />
+    <Search isDisabled={isFetching} handleSearch={handleSearch} />
+    {isFetching && <div>Loading...</div>}
     {!!userInfo && <User userInfo={userInfo} />}
     {!!userInfo && <Actions getRepos={getRepos} getStars={getStars} />}
     {
@@ -42,6 +44,7 @@ AppContent.propTypes = {
   userInfo: PropTypes.object,
   repos: PropTypes.array.isRequired,
   stars: PropTypes.array.isRequired,
+  isFetching: PropTypes.bool.isRequired,
   handleSearch: PropTypes.func.isRequired,
   getRepos: PropTypes.func.isRequired,
   getStars: PropTypes.func.isRequired
