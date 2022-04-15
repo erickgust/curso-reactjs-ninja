@@ -29,11 +29,13 @@ class App extends Component {
   }
 
   handleSearch (e) {
-    const value = e.target.value
+    const target = e.target
+    const value = target.value
     const keyCode = e.which || e.keyCode
     const ENTER = 13
 
     if (keyCode === ENTER) {
+      target.disabled = true
       fetch(`https://api.github.com/users/${value}`)
         .then(req => req.json())
         .then(user => {
@@ -50,6 +52,7 @@ class App extends Component {
             starred: []
           })
         })
+        .finally(() => { target.disabled = false })
     }
   }
 
