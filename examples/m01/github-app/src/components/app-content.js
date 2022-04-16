@@ -10,7 +10,7 @@ import { PropTypes } from 'prop-types'
 const AppContent = ({
   userInfo,
   repos,
-  stars,
+  starred,
   isFetching,
   handleSearch,
   getRepos,
@@ -30,11 +30,11 @@ const AppContent = ({
         />
     }
     {
-      !!stars.length &&
+      !!starred.length &&
         <Repos
           className='user-stars'
           title='Favoritos'
-          repos={stars}
+          repos={starred}
         />
     }
   </div>
@@ -43,7 +43,7 @@ const AppContent = ({
 AppContent.propTypes = {
   userInfo: PropTypes.object,
   repos: PropTypes.array.isRequired,
-  stars: PropTypes.array.isRequired,
+  starred: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired,
   handleSearch: PropTypes.func.isRequired,
   getRepos: PropTypes.func.isRequired,
