@@ -1,8 +1,8 @@
 'use strict'
 
 function sum() {
-
+  return 5
 }
 
-module.exports = sum
+export default sum
 
