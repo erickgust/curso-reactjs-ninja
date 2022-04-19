@@ -1,9 +1,8 @@
 'use strict'
 
+const sum = require('./sum')
 
-describe('# Escopo teste', () => {
-  it('Um é igual a 1', () => {
-    expect(1).toBe(1)
-  })
+it('Sum should be a function', () => {
+  expect(typeof sum).toBe('function')
 })
 
