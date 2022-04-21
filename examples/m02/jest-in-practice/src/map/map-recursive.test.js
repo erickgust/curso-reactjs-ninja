@@ -1,6 +1,6 @@
 'use strict'
 
-import map from './map'
+import map from './map-recursive'
 
 it('Map should be a function', () => {
   expect(typeof map).toBe('function')
