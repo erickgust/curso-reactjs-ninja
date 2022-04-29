@@ -32,6 +32,7 @@ module.exports = validate({
 
     new HtmlPlugin({
       title: 'Github App',
+      inject: false,
       template: path.join(__dirname, 'src', 'html', 'template.html')
     })
   ],
