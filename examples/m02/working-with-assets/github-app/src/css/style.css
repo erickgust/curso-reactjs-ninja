@@ -10,54 +10,20 @@ body {
   padding: 0;
 }
 
-.app {
-  float: left;
-  padding: 30px;
-  width: 100%;
-}
-
-.git-user img {
-  float: left;
-  margin: 0 20px 20px 0;
-  max-height: 200px;
-}
-
-.user-info li {
-  padding: 5px;
-}
-
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.user-actions,
-.user-repos,
-.user-stars {
+.app {
   float: left;
+  padding: 30px;
   width: 100%;
 }
 
-.user-actions {
-  display: flex;
-  justify-content: space-between;
-}
-
-.user-actions button {
-  font-size: 20px;
-  font-weight: 700;
-  height: 50px;
-  text-transform: uppercase;
-  width: 48%;
-}
-
-.user-repos li,
-.user-stars li {
-  padding: 10px 0;
-}
-
-.user-repos li + li,
-.user-stars li + li {
-  border-top: 1px solid #ccc;
+.user-actions,
+.repos-list {
+  float: left;
+  width: 100%;
 }

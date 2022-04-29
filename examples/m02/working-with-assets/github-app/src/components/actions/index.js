@@ -2,6 +2,7 @@
 
 import { PropTypes } from 'prop-types'
 import React from 'react'
+import './actions.css'
 
 const Actions = ({ getRepos, getStars }) => (
   <div className='user-actions'>

@@ -2,9 +2,10 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import './repos.css'
 
-const Repos = ({ className, title, repos }) => (
-  <div className={className}>
+const Repos = ({title, repos }) => (
+  <div className='repos-list'>
     <h2>{title}:</h2>
     <ul>
       {repos.map((repo) => (
@@ -16,12 +17,7 @@ const Repos = ({ className, title, repos }) => (
   </div>
 )
 
-Repos.defaultProps = {
-  className: ''
-}
-
 Repos.propTypes = {
-  className: PropTypes.string,
   title: PropTypes.string.isRequired,
   repos: PropTypes.array
 }

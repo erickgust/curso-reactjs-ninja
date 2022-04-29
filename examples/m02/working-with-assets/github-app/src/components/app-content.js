@@ -24,7 +24,6 @@ const AppContent = ({
     {
       !!repos.length &&
         <Repos
-          className='user-repos'
           title='Repositórios'
           repos={repos}
         />
@@ -32,7 +31,6 @@ const AppContent = ({
     {
       !!starred.length &&
         <Repos
-          className='user-stars'
           title='Favoritos'
           repos={starred}
         />

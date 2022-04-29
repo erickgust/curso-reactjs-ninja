@@ -2,6 +2,7 @@
 
 import { PropTypes } from 'prop-types'
 import React from 'react'
+import './user.css'
 
 const User = ({ userInfo }) => (
   <div className='git-user'>
