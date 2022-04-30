@@ -5,13 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= htmlWebpackPlugin.options.title %></title>
-  <style></style>
+  <style><%= compilation.assets['crp.css'].source() %></style>
 </head>
 
 <body>
   <div data-js="app"></div>
-  <link rel="stylesheet" href="">
-  <script src=""></script>
+
+  <% htmlWebpackPlugin.files.js.forEach(file => { %>
+    <script async src="<%= file %>"></script>
+  <%}) %>
+
+  <% htmlWebpackPlugin.files.css.forEach(file => { %>
+    <% if (file !== 'crp.css') { %>
+      <link rel="stylesheet" href="<%= file %>">
+    <%} %>
+  <%}) %>
 </body>
 
 </html>
