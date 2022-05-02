@@ -1,10 +1,10 @@
 'use strict'
 
 import React from 'react'
-import User from '../user'
-import Search from '../search'
-import Actions from '../actions'
-import Repos from '../repos'
+import User from 'components/user'
+import Search from 'components/search'
+import Actions from 'components/actions'
+import Repos from 'components/repos'
 import { PropTypes } from 'prop-types'
 import './app.css'
 
