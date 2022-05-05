@@ -7,7 +7,6 @@ module.exports = function (config, env) {
   newConfig.module.preLoaders = (newConfig.module.preLoaders || []).concat([{
     test: /\.js$/,
     exclude: /node_modules/,
-    include: /src/,
     loader: 'standard'
   }])
 
