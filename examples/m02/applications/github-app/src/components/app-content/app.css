@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  float: left;
+  padding: 30px;
+  width: 100%;
+}
+
+.user-actions,
+.repos-list {
+  float: left;
+  width: 100%;
+}

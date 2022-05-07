@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.user-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-actions button {
+  font-size: 20px;
+  font-weight: 700;
+  height: 50px;
+  text-transform: uppercase;
+  width: 48%;
+}
