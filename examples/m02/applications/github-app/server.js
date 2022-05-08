@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
-const config = require('./webpack.config');
+const webpack = require('webpack')
+const WebpackDevServer = require('webpack-dev-server')
+const config = require('./webpack.config')
 
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
@@ -15,4 +15,4 @@ new WebpackDevServer(webpack(config), {
   }
 
   console.log('Listening on http://localhost:3000')
-});
+})
