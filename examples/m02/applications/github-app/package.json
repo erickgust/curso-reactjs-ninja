@@ -41,7 +41,9 @@
   },
   "standard": {
     "globals": [
-      "fetch"
+      "fetch",
+      "it",
+      "expect"
     ]
   },
   "resolutions": {
