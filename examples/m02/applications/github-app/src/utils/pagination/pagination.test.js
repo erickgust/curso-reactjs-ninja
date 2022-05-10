@@ -24,11 +24,44 @@ it('pagination({ total: 5, activePage: 1 }) should return [1, 2, 3, 4, 5]', () =
   expect(pagination(params)).toEqual(result)
 })
 
-it(
-  'pagination({ total: 10, activePage: 5 }) should return [1, "...", 4, 5, 6, "...", 10]',
-  () => {
-    const params = { total: 10, activePage: 5 }
-    const result = [1, '...', 4, 5, 6, '...', 10]
-    expect(pagination(params)).toEqual(result)
-  }
-)
+it('pagination({ total: 6, activePage: 1 }) should return [1, 2, 3, "...", 6]', () => {
+  const params = { total: 6, activePage: 1 }
+  const result = [1, 2, 3, '...', 6]
+  expect(pagination(params)).toEqual(result)
+})
+
+it('pagination({ total: 6, activePage: 2 }) should return [1, 2, 3, "...", 6]', () => {
+  const params = { total: 6, activePage: 2 }
+  const result = [1, 2, 3, '...', 6]
+  expect(pagination(params)).toEqual(result)
+})
+
+it('pagination({ total: 6, activePage: 3 }) should return [1, 2, 3, 4, 5, 6]', () => {
+  const params = { total: 6, activePage: 3 }
+  const result = [1, 2, 3, 4, 5, 6]
+  expect(pagination(params)).toEqual(result)
+})
+
+it('pagination({ total: 6, activePage: 4 }) should return [1, 2, 3, 4, 5, 6]', () => {
+  const params = { total: 6, activePage: 4 }
+  const result = [1, 2, 3, 4, 5, 6]
+  expect(pagination(params)).toEqual(result)
+})
+
+it('pagination({ total: 6, activePage: 5 }) should return [1, "...", 4, 5, 6]', () => {
+  const params = { total: 6, activePage: 5 }
+  const result = [1, '...', 4, 5, 6]
+  expect(pagination(params)).toEqual(result)
+})
+
+it('pagination({ total: 6, activePage: 6 }) should return [1, "...", 4, 5, 6]', () => {
+  const params = { total: 6, activePage: 6 }
+  const result = [1, '...', 4, 5, 6]
+  expect(pagination(params)).toEqual(result)
+})
+
+it('pagination({ total: 10, activePage: 5 }) should return [1, "...", 4, 5, 6, "...", 10]', () => {
+  const params = { total: 10, activePage: 5 }
+  const result = [1, '...', 4, 5, 6, '...', 10]
+  expect(pagination(params)).toEqual(result)
+})
