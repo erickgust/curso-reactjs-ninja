@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-const Dots = () => <span>...</span>
+const Dots = ({ className }) => <span className={className}>...</span>
 
 const Page = ({ page, pageLink, onClick }) => {
   const Tag = page === '...' ? Dots : 'a'
@@ -15,7 +15,7 @@ const Page = ({ page, pageLink, onClick }) => {
       }
 
   return (
-    <Tag href={pageLink} onClick={handleClick}>
+    <Tag href={pageLink} onClick={handleClick} className='pagination-link'>
       {page}
     </Tag>
   )
