@@ -22,20 +22,22 @@ const AppContent = ({
     {isFetching && <div>Loading...</div>}
     {!!userInfo && <User userInfo={userInfo} />}
     {!!userInfo && <Actions getRepos={getRepos} getStars={getStars} />}
-    {
-      !!repos.length &&
-        <Repos
-          title='Repositórios'
-          repos={repos}
-        />
-    }
-    {
-      !!starred.length &&
-        <Repos
-          title='Favoritos'
-          repos={starred}
-        />
-    }
+    <div className='repos-wrapper'>
+      {
+        !!repos.length &&
+          <Repos
+            title='Repositórios'
+            repos={repos}
+          />
+      }
+      {
+        !!starred.length &&
+          <Repos
+            title='Favoritos'
+            repos={starred}
+          />
+      }
+    </div>
   </div>
 )
 

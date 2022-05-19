@@ -13,7 +13,20 @@ ul {
 }
 
 .user-actions,
-.repos-list {
+.repos-wrapper {
+  display: flex;
+  justify-content: space-between;
   float: left;
   width: 100%;
+}
+
+.user-actions button,
+.repos-wrapper > div {
+  margin-right: 20px;
+  width: 100%
+}
+
+.user-actions :first-child,
+.repos-wrapper :first-child {
+  margin-left: 0;
 }
