@@ -15,7 +15,8 @@ const AppContent = ({
   isFetching,
   handleSearch,
   getRepos,
-  getStars
+  getStars,
+  handlePage
 }) => (
   <div className='app'>
     <Search isDisabled={isFetching} handleSearch={handleSearch} />
@@ -24,17 +25,19 @@ const AppContent = ({
     {!!userInfo && <Actions getRepos={getRepos} getStars={getStars} />}
     <div className='repos-wrapper'>
       {
-        !!repos.length &&
+        !!repos.repos.length &&
           <Repos
             title='Repositórios'
             repos={repos}
+            handlePage={(page) => handlePage('repos', page)}
           />
       }
       {
-        !!starred.length &&
+        !!starred.repos.length &&
           <Repos
             title='Favoritos'
             repos={starred}
+            handlePage={(page) => handlePage('starred', page)}
           />
       }
     </div>
@@ -43,12 +46,13 @@ const AppContent = ({
 
 AppContent.propTypes = {
   userInfo: PropTypes.object,
-  repos: PropTypes.array.isRequired,
-  starred: PropTypes.array.isRequired,
+  repos: PropTypes.object.isRequired,
+  starred: PropTypes.object.isRequired,
   isFetching: PropTypes.bool.isRequired,
   handleSearch: PropTypes.func.isRequired,
   getRepos: PropTypes.func.isRequired,
-  getStars: PropTypes.func.isRequired
+  getStars: PropTypes.func.isRequired,
+  handlePage: PropTypes.func.isRequired
 }
 
 export default AppContent
