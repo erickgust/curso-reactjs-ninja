@@ -84,13 +84,13 @@ it('pagination() should return [1]', () => {
 })
 
 it('pagination({ total: "hello", activePage: 1 }) must throw an error', () => {
-  const params = { total: "hello", activePage: 1 }
+  const params = { total: 'hello', activePage: 1 }
   const msg = '"total" must be a number'
   expect(() => pagination(params)).toThrow(new TypeError(msg))
 })
 
 it('pagination({ total: 5, activePage: "bye" }) must throw an error', () => {
-  const params = { total: 5, activePage: "bye" }
+  const params = { total: 5, activePage: 'bye' }
   const msg = '"activePage" must be a number'
   expect(() => pagination(params)).toThrow(new TypeError(msg))
 })
