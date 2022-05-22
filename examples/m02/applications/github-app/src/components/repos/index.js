@@ -21,13 +21,13 @@ const Repos = ({ title, repos, handlePage }) => (
   </div>
 )
 
-Repos.defaultProps = {
-  repos: {}
-}
-
 Repos.propTypes = {
   title: PropTypes.string.isRequired,
-  repos: PropTypes.object.isRequired,
+  repos: PropTypes.shape({
+    repos: PropTypes.array.isRequired,
+    activePage: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired
+  }).isRequired,
   handlePage: PropTypes.func.isRequired
 }
 
