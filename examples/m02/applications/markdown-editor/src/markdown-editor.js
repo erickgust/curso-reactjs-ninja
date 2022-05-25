@@ -3,7 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const MarkdownEditor = ({ value, handleChange }) => (
+export const MarkdownEditor = ({ value, handleChange, getMarkup }) => (
   <div className='editor'>
     <textarea
       name='textarea'
@@ -12,13 +12,12 @@ export const MarkdownEditor = ({ value, handleChange }) => (
       autoFocus
     />
 
-    <div className='view'>
-      {value}
-    </div>
+    <div className='view' dangerouslySetInnerHTML={getMarkup()}/>
   </div>
 )
 
 MarkdownEditor.propTypes = {
   value: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired
+  handleChange: PropTypes.func.isRequired,
+  getMarkup: PropTypes.func.isRequired
 }
