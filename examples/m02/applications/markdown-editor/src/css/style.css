@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  font-size: 18px;
+  font-family: monospace;
+}
+
+.editor {
+  display: flex;
+  height: 100vh;
+}
+
+.view {
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  width: 50vw;
+  overflow-wrap: break-word;
+  overflow-y: scroll;
+}
+
+textarea {
+  border: 8px solid #fc0;
+  padding: 10px;
+  resize: none;
+  width: 50vw;
+  font-size: inherit;
+}
+
+textarea:focus {
+  outline: 0 none;
+}
