@@ -5,6 +5,7 @@ import { MarkdownEditor } from './markdown-editor'
 import { marked } from 'marked'
 
 import './css/style.css'
+import { sanitize } from 'dompurify'
 
 export class App extends Component {
   constructor () {
@@ -20,7 +21,7 @@ export class App extends Component {
     }
 
     this.getMarkup = () => (
-      { __html: marked(this.state.value) }
+      { __html: sanitize(marked(this.state.value)) }
     )
   }
 
