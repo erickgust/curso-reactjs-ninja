@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@import '~highlight.js/styles/base16/dracula.css';
+
 * {
   box-sizing: border-box;
 }
@@ -22,7 +24,7 @@ body {
   padding: 10px;
   width: 50vw;
   overflow-wrap: break-word;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 textarea {
