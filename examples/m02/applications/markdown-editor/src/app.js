@@ -4,12 +4,16 @@ import React, { Component } from 'react'
 import { MarkdownEditor } from './markdown-editor'
 import { sanitize } from 'dompurify'
 import { marked } from 'marked'
-import hljs from 'highlight.js'
 
 import './css/style.css'
 
-marked.setOptions({
-  highlight: (code) => hljs.highlightAuto(code).value
+import('highlight.js').then(({ default: hljs }) => {
+  marked.setOptions({
+    highlight: (code, lang) => {
+      const language = hljs.getLanguage(lang) ? lang : 'plaintext'
+      return hljs.highlight(code, { language }).value
+    }
+  })
 })
 
 export class App extends Component {
