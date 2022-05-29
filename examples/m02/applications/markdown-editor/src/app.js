@@ -34,13 +34,27 @@ export class App extends Component {
     )
   }
 
+  componentDidMount () {
+    const value = localStorage.getItem('md')
+    this.setState({ value })
+  }
+
   render () {
     return (
-      <MarkdownEditor
-        value={this.state.value}
-        handleChange={this.handleChange}
-        getMarkup={this.getMarkup}
-      />
+      <>
+        <MarkdownEditor
+          value={this.state.value}
+          handleChange={this.handleChange}
+          getMarkup={this.getMarkup}
+        />
+
+        <button
+          onClick={() => localStorage.setItem('md', this.state.value)}
+          className='save-button'
+        >
+          Salvar
+        </button>
+      </>
     )
   }
 }
