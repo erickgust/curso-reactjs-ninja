@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@import '~highlight.js/styles/base16/dracula.css';
+@import '~highlight.js/styles/night-owl.css';
 
 * {
   box-sizing: border-box;
