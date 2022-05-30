@@ -1,53 +1,48 @@
 @charset "UTF-8";
 
+@import './reset.css';
 @import '~highlight.js/styles/night-owl.css';
 
-* {
-  box-sizing: border-box;
+.main-editor {
+  display: grid;
+  grid-template-areas:
+    "editor view"
+    "button button"
+  ;
+  grid-template-rows: 1fr 60px;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+  font-family: sans-serif;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-size: 18px;
-  font-family: monospace;
+.main-editor > .editor {
+  background-color: #eee;
+  padding: 10px;
+  resize: none;
+  grid-area: editor;
 }
 
-.editor {
-  display: flex;
-  height: calc(100vh - 60px);
+.main-editor > .editor:focus {
+  outline: 0 none;
 }
 
-.save-button {
+.main-editor > .view {
+  overflow-wrap: break-word;
+  overflow-y: auto;
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  grid-area: view;
+}
+
+.main-editor > .save-button {
   all: unset;
   width: 100%;
   color: #fff;
-  background-color: #333;
+  background-color: #111;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
   cursor: pointer;
-  height: 60px;
-}
-
-.view {
-  background: #333;
-  color: #fff;
-  padding: 10px;
-  width: 50vw;
-  overflow-wrap: break-word;
-  overflow-y: auto;
-}
-
-textarea {
-  border: 8px solid #fc0;
-  padding: 10px;
-  resize: none;
-  width: 50vw;
-  font-size: inherit;
-}
-
-textarea:focus {
-  outline: 0 none;
+  grid-area: button;
 }

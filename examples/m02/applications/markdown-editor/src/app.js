@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { Component } from 'react'
-import { MarkdownEditor } from './markdown-editor'
+import { MarkdownEditor } from './components/markdown-editor'
 import { sanitize } from 'dompurify'
 import { marked } from 'marked'
 
@@ -32,6 +32,10 @@ export class App extends Component {
     this.getMarkup = () => (
       { __html: sanitize(marked(this.state.value)) }
     )
+
+    this.handleSave = () => {
+      localStorage.setItem('md', this.state.value)
+    }
   }
 
   componentDidMount () {
@@ -41,20 +45,12 @@ export class App extends Component {
 
   render () {
     return (
-      <>
-        <MarkdownEditor
-          value={this.state.value}
-          handleChange={this.handleChange}
-          getMarkup={this.getMarkup}
-        />
-
-        <button
-          onClick={() => localStorage.setItem('md', this.state.value)}
-          className='save-button'
-        >
-          Salvar
-        </button>
-      </>
+      <MarkdownEditor
+        value={this.state.value}
+        handleChange={this.handleChange}
+        getMarkup={this.getMarkup}
+        handleSave={this.handleSave}
+      />
     )
   }
 }
