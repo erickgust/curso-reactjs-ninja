@@ -4,7 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { MarkdownFooter } from '../markdown-footer'
 
-export const MarkdownEditor = ({ value, handleChange, getMarkup, handleSave }) => (
+export const MarkdownEditor = ({ value, isSaving, handleChange, getMarkup }) => (
   <section className='main-editor'>
     <textarea
       name='textarea'
@@ -16,13 +16,13 @@ export const MarkdownEditor = ({ value, handleChange, getMarkup, handleSave }) =
 
     <div className='view' dangerouslySetInnerHTML={getMarkup()}/>
 
-    <MarkdownFooter handleSave={handleSave} />
+    <MarkdownFooter isSaving={isSaving} />
   </section>
 )
 
 MarkdownEditor.propTypes = {
   value: PropTypes.string.isRequired,
+  isSaving: PropTypes.bool.isRequired,
   handleChange: PropTypes.func.isRequired,
-  getMarkup: PropTypes.func.isRequired,
-  handleSave: PropTypes.func.isRequired
+  getMarkup: PropTypes.func.isRequired
 }

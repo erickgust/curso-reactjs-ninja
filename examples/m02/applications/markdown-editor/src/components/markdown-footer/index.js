@@ -3,14 +3,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const MarkdownFooter = ({ handleSave }) => (
+export const MarkdownFooter = ({ isSaving }) => (
   <footer className='markdown-footer'>
-    <button onClick={handleSave} className='save-button'>
-      Salvar
-    </button>
+    <p className='save'>
+      {isSaving ? 'Salvando...' : 'Salvo!'}
+    </p>
   </footer>
 )
 
 MarkdownFooter.propTypes = {
-  handleSave: PropTypes.func.isRequired
+  isSaving: PropTypes.bool.isRequired
 }

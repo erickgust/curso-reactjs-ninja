@@ -20,12 +20,14 @@ export class App extends Component {
   constructor () {
     super()
     this.state = {
-      value: ''
+      value: '',
+      isSaving: false
     }
 
     this.handleChange = (e) => {
       this.setState({
-        value: e.target.value
+        value: e.target.value,
+        isSaving: true
       })
     }
 
@@ -34,8 +36,10 @@ export class App extends Component {
     )
 
     this.handleSave = () => {
-      console.log('save')
       localStorage.setItem('md', this.state.value)
+      this.setState({
+        isSaving: false
+      })
     }
   }
 
@@ -46,7 +50,7 @@ export class App extends Component {
 
   componentDidUpdate () {
     clearTimeout(this.timer)
-    this.timer = setTimeout(this.handleSave, 1000)
+    this.timer = setTimeout(this.handleSave, 800)
   }
 
   componentWillUnmount () {
@@ -57,9 +61,9 @@ export class App extends Component {
     return (
       <MarkdownEditor
         value={this.state.value}
+        isSaving={this.state.isSaving}
         handleChange={this.handleChange}
         getMarkup={this.getMarkup}
-        handleSave={this.handleSave}
       />
     )
   }
