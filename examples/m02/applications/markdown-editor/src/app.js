@@ -34,6 +34,7 @@ export class App extends Component {
     )
 
     this.handleSave = () => {
+      console.log('save')
       localStorage.setItem('md', this.state.value)
     }
   }
@@ -41,6 +42,15 @@ export class App extends Component {
   componentDidMount () {
     const value = localStorage.getItem('md')
     this.setState({ value })
+  }
+
+  componentDidUpdate () {
+    clearTimeout(this.timer)
+    this.timer = setTimeout(this.handleSave, 1000)
+  }
+
+  componentWillUnmount () {
+    clearTimeout(this.timer)
   }
 
   render () {
