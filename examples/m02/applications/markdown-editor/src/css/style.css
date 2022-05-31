@@ -7,7 +7,7 @@
   display: grid;
   grid-template-areas:
     "editor view"
-    "button button"
+    "footer footer"
   ;
   grid-template-rows: 1fr 60px;
   grid-template-columns: 1fr 1fr;
@@ -35,14 +35,18 @@
   grid-area: view;
 }
 
-.main-editor > .save-button {
+.main-editor > .markdown-footer {
+  display: flex;
+  grid-area: footer;
+  background-color: #111;
+}
+
+.main-editor > .markdown-footer > .save-button {
   all: unset;
   width: 100%;
   color: #fff;
-  background-color: #111;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
   cursor: pointer;
-  grid-area: button;
 }

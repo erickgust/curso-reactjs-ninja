@@ -2,6 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import { MarkdownFooter } from '../markdown-footer'
 
 export const MarkdownEditor = ({ value, handleChange, getMarkup, handleSave }) => (
   <section className='main-editor'>
@@ -15,9 +16,7 @@ export const MarkdownEditor = ({ value, handleChange, getMarkup, handleSave }) =
 
     <div className='view' dangerouslySetInnerHTML={getMarkup()}/>
 
-    <button onClick={handleSave} className='save-button'>
-      Salvar
-    </button>
+    <MarkdownFooter handleSave={handleSave} />
   </section>
 )
 
