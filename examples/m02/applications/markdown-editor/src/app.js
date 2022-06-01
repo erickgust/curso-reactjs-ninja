@@ -46,6 +46,15 @@ export class App extends Component {
       localStorage.removeItem('md')
       this.setState({ value: '' })
     }
+
+    this.handleCreate = () => {
+      this.setState({ value: '' })
+      this.textarea.focus()
+    }
+
+    this.textareaRef = (node) => {
+      this.textarea = node
+    }
   }
 
   componentDidMount () {
@@ -68,8 +77,10 @@ export class App extends Component {
         value={this.state.value}
         isSaving={this.state.isSaving}
         handleChange={this.handleChange}
-        getMarkup={this.getMarkup}
         handleRemove={this.handleRemove}
+        handleCreate={this.handleCreate}
+        textareaRef={this.textareaRef}
+        getMarkup={this.getMarkup}
       />
     )
   }
