@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { Component } from 'react'
-import { MarkdownEditor } from './components/markdown-editor'
+import { MarkdownEditor } from './views/markdown-editor'
 import { sanitize } from 'dompurify'
 import { marked } from 'marked'
 

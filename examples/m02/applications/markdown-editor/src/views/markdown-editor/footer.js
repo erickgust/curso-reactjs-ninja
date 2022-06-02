@@ -2,13 +2,12 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button } from '../button'
+import { Button } from '../../components/button'
+import { SaveMessage } from '../../components/save-message'
 
 export const MarkdownFooter = ({ isSaving, handleRemove, handleCreate }) => (
   <footer className='markdown-footer'>
-    {isSaving !== null && <p className='save'>
-      {isSaving ? 'Salvando...' : 'Salvo!'}
-    </p>}
+    <SaveMessage isSaving={isSaving} />
 
     <Button onClick={handleCreate} kind='success'>Novo</Button>
     <Button onClick={handleRemove} kind='danger'>Deletar</Button>
