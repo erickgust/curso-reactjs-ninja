@@ -1,0 +1,23 @@
+.main-button {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: #000;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 100ms ease-in-out;
+}
+
+.main-button.-success {
+  color: #111;
+  background-color: #7d7;
+}
+
+.main-button.-danger {
+  background-color: #f00;
+}
+
+.main-button:hover {
+  filter: brightness(0.7);
+}
