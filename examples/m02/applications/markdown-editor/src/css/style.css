@@ -6,13 +6,32 @@
 .main-editor {
   display: grid;
   grid-template-areas:
-    "editor view"
-    "footer footer"
+    "files editor view"
+    "files footer footer"
   ;
   grid-template-rows: 1fr 60px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 20vw 1fr 1fr;
   height: 100vh;
   font-family: sans-serif;
+}
+
+.main-editor > .files-list {
+  background-color: #111;
+  color: #eee;
+  grid-area: files;
+  padding: 10px 20px;
+}
+
+.main-editor > .files-list > ul {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.main-editor > .files-list button {
+  padding: 5px;
+  width: 100%;
 }
 
 .main-editor > .editor {

@@ -3,6 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { MarkdownFooter } from './footer'
+import { Files } from '../files'
 
 export const MarkdownEditor = ({
   value,
@@ -12,6 +13,8 @@ export const MarkdownEditor = ({
   ...props
 }) => (
   <section className='main-editor'>
+    <Files />
+
     <textarea
       name='textarea'
       value={value}
