@@ -1,9 +1,10 @@
 'use strict'
 
 import React, { Component } from 'react'
-import { MarkdownEditor } from './views/markdown-editor'
 import { sanitize } from 'dompurify'
 import { marked } from 'marked'
+import { v4 } from 'uuid'
+import { MarkdownEditor } from './views/markdown-editor'
 
 import './css/style.css'
 
@@ -21,6 +22,7 @@ export class App extends Component {
     super()
     this.state = {
       value: '',
+      id: v4(),
       isSaving: null
     }
 
@@ -37,29 +39,24 @@ export class App extends Component {
 
     this.handleSave = () => {
       if (this.state.isSaving) {
-        localStorage.setItem('md', this.state.value)
+        localStorage.setItem(this.state.id, this.state.value)
         this.setState({ isSaving: false })
       }
     }
 
     this.handleRemove = () => {
-      localStorage.removeItem('md')
-      this.setState({ value: '' })
+      localStorage.removeItem(this.state.id)
+      this.setState({ value: '', id: v4() })
     }
 
     this.handleCreate = () => {
-      this.setState({ value: '' })
+      this.setState({ value: '', id: v4() })
       this.textarea.focus()
     }
 
     this.textareaRef = (node) => {
       this.textarea = node
     }
-  }
-
-  componentDidMount () {
-    const value = localStorage.getItem('md')
-    this.setState({ value: value || '' })
   }
 
   componentDidUpdate () {
