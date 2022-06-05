@@ -10,10 +10,12 @@ export const MarkdownEditor = ({
   handleChange,
   getMarkup,
   textareaRef,
+  files,
+  handleOpenFile,
   ...props
 }) => (
   <section className='main-editor'>
-    <Files />
+    <Files files={files} handleOpenFile={handleOpenFile} />
 
     <textarea
       name='textarea'
@@ -31,6 +33,7 @@ export const MarkdownEditor = ({
 )
 
 MarkdownEditor.propTypes = {
+  ...Files.propTypes,
   value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   getMarkup: PropTypes.func.isRequired,

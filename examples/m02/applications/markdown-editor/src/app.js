@@ -23,6 +23,7 @@ export class App extends Component {
     this.state = {
       value: '',
       id: v4(),
+      files: {},
       isSaving: null
     }
 
@@ -57,6 +58,14 @@ export class App extends Component {
     this.textareaRef = (node) => {
       this.textarea = node
     }
+
+    this.handleOpenFile = (fileId) => () => {
+      this.setState({ value: this.state.files[fileId], id: fileId })
+    }
+  }
+
+  componentDidMount () {
+    this.setState({ files: { ...localStorage } })
   }
 
   componentDidUpdate () {
@@ -72,10 +81,12 @@ export class App extends Component {
     return (
       <MarkdownEditor
         value={this.state.value}
+        files={this.state.files}
         isSaving={this.state.isSaving}
         handleChange={this.handleChange}
         handleRemove={this.handleRemove}
         handleCreate={this.handleCreate}
+        handleOpenFile={this.handleOpenFile}
         textareaRef={this.textareaRef}
         getMarkup={this.getMarkup}
       />

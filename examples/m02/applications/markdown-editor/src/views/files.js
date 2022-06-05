@@ -1,17 +1,9 @@
 'use strict'
 
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const files = {
-  1: '# Title',
-  2: '# Subtitle'
-}
-
-const handleOpenFile = (fileId) => () => {
-  console.log('clicou em', fileId)
-}
-
-export const Files = () => (
+export const Files = ({ files, handleOpenFile }) => (
   <aside className='files-list'>
     <h2>Files</h2>
 
@@ -26,3 +18,8 @@ export const Files = () => (
     </ul>
   </aside>
 )
+
+Files.propTypes = {
+  files: PropTypes.object.isRequired,
+  handleOpenFile: PropTypes.func.isRequired
+}
