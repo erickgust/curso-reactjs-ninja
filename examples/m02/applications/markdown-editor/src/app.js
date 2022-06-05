@@ -47,7 +47,8 @@ export class App extends Component {
 
     this.handleRemove = () => {
       localStorage.removeItem(this.state.id)
-      this.setState({ value: '', id: v4() })
+      const { [this.state.id]: deleted, ...files } = this.state.files
+      this.setState({ value: '', id: v4(), files })
     }
 
     this.handleCreate = () => {
