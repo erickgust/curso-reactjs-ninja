@@ -20,7 +20,7 @@ export const MarkdownEditor = ({
     <textarea
       name='textarea'
       value={value}
-      onChange={handleChange}
+      onChange={handleChange('value')}
       autoFocus
       className='editor'
       ref={textareaRef}
@@ -28,7 +28,7 @@ export const MarkdownEditor = ({
 
     <div className='view' dangerouslySetInnerHTML={getMarkup()}/>
 
-    <MarkdownFooter {...props} />
+    <MarkdownFooter {...props} handleChange={handleChange} />
   </section>
 )
 

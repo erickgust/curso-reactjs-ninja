@@ -21,15 +21,16 @@ export class App extends Component {
   constructor () {
     super()
     this.state = {
+      title: '',
       value: '',
       id: v4(),
       files: {},
       isSaving: null
     }
 
-    this.handleChange = (e) => {
+    this.handleChange = (type) => (e) => {
       this.setState({
-        value: e.target.value,
+        [type]: e.target.value,
         isSaving: true
       })
     }
@@ -41,7 +42,7 @@ export class App extends Component {
     this.handleSave = () => {
       if (this.state.isSaving) {
         const newFile = {
-          title: 'Sem titulo',
+          title: this.state.title || 'Sem titulo',
           content: this.state.value
         }
 
@@ -62,6 +63,7 @@ export class App extends Component {
       const firstKey = Object.keys(files)[0]
 
       this.setState({
+        title: files[firstKey]?.title || '',
         value: files[firstKey]?.content || '',
         id: firstKey || v4(),
         files
@@ -69,7 +71,7 @@ export class App extends Component {
     }
 
     this.handleCreate = () => {
-      this.setState({ value: '', id: v4() })
+      this.setState({ title: '', value: '', id: v4() })
       this.textarea.focus()
     }
 
@@ -79,6 +81,7 @@ export class App extends Component {
 
     this.handleOpenFile = (fileId) => () => {
       this.setState({
+        title: this.state.files[fileId].title,
         value: this.state.files[fileId].content,
         id: fileId
       })
@@ -116,6 +119,7 @@ export class App extends Component {
         handleOpenFile={this.handleOpenFile}
         textareaRef={this.textareaRef}
         getMarkup={this.getMarkup}
+        title={this.state.title}
       />
     )
   }
