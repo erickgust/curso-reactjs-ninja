@@ -20,10 +20,15 @@ import('highlight.js').then(({ default: hljs }) => {
 export class App extends Component {
   constructor () {
     super()
-    this.state = {
+
+    this.clearState = () => ({
       title: '',
       value: '',
-      id: v4(),
+      id: v4()
+    })
+
+    this.state = {
+      ...this.clearState(),
       files: {},
       isSaving: null
     }
@@ -60,18 +65,21 @@ export class App extends Component {
     this.handleRemove = () => {
       localStorage.removeItem(this.state.id)
       const { [this.state.id]: deleted, ...files } = this.state.files
-      const firstKey = Object.keys(files)[0]
+      const fileId = Object.keys(files)[0]
 
-      this.setState({
-        title: files[firstKey]?.title || '',
-        value: files[firstKey]?.content || '',
-        id: firstKey || v4(),
-        files
-      })
+      this.setState({ files })
+
+      if (fileId === undefined) {
+        return this.setState({
+          ...this.clearState()
+        })
+      }
+
+      this.setFileInfo(files, fileId)
     }
 
     this.handleCreate = () => {
-      this.setState({ title: '', value: '', id: v4() })
+      this.setState({ ...this.clearState() })
       this.textarea.focus()
     }
 
@@ -79,13 +87,17 @@ export class App extends Component {
       this.textarea = node
     }
 
-    this.handleOpenFile = (fileId) => () => {
+    this.setFileInfo = (files, fileId) => {
       this.setState({
-        title: this.state.files[fileId].title,
-        value: this.state.files[fileId].content,
+        title: files[fileId].title,
+        value: files[fileId].content,
         id: fileId
       })
     }
+
+    this.handleOpenFile = (fileId) => () => (
+      this.setFileInfo(this.state.files, fileId)
+    )
   }
 
   componentDidMount () {
