@@ -102,7 +102,7 @@ export class App extends Component {
 
   componentDidMount () {
     const files = JSON.parse(localStorage.getItem('markdown-editor'))
-    this.setState(files)
+    this.setState({ files })
   }
 
   componentDidUpdate () {
