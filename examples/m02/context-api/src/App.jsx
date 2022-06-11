@@ -7,19 +7,21 @@ import './App.css'
 export class App extends PureComponent {
   constructor() {
     super()
+    this.changeColor = (color) => () => this.setState({ color })
     this.state = {
-      color: color
+      color,
+      changeColor: this.changeColor
     }
   }
 
   render() {
     return (
-      <ColorContext.Provider value={this.state.color}>
+      <ColorContext.Provider value={this.state}>
         <MessageList
           messages={[
-            { text: 'hey' },
-            { text: 'ho' },
-            { text: 'let\'s go' }
+            { text: 'hey', color: 'black' },
+            { text: 'ho', color: 'orange' },
+            { text: 'let\'s go', color: 'cyan' }
           ]}
         />
       </ColorContext.Provider>

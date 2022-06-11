@@ -1,5 +1,8 @@
 import React from "react"
 
-export const color = { color: 'purple' }
+export const color = 'purple'
 
-export const ColorContext = React.createContext(color)
+export const ColorContext = React.createContext({
+  color,
+  changeColor: () => { }
+})

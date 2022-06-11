@@ -6,6 +6,9 @@ export class Message extends Component {
     return (
       <li style={{ background: this.context.color }}>
         {this.props.text}
+        <button onClick={this.context.changeColor(this.props.color)}>
+          Change color
+        </button>
       </li>
     )
   }
