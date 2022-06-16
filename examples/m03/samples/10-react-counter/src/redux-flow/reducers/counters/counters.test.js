@@ -18,3 +18,17 @@ it('Should add another counter', () => {
   expect(counters(input, action)).toEqual(output)
 })
 
+it('Should remove a counter', () => {
+  const input = [0, 1, 0]
+  const action = { type: 'REMOVE_COUNTER', index: 1 }
+  const output = [0, 0]
+  expect(counters(input, action)).toEqual(output)
+})
+
+it('Should remove another counter', () => {
+  const input = [0]
+  const action = { type: 'REMOVE_COUNTER', index: 0 }
+  const output = []
+  expect(counters(input, action)).toEqual(output)
+})
+
