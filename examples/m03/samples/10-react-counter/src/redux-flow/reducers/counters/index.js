@@ -10,6 +10,11 @@ export const counters = (state, action) => {
       return state.map((counter, index) => (
         index === action.index ? counter + 1 : counter
       ))
+
+    case 'DECREMENT':
+      return state.map((counter, index) => (
+        index === action.index ? counter - 1 : counter
+      ))
   }
 
   return state

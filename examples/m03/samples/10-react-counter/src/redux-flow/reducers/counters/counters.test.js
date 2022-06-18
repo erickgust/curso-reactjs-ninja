@@ -46,3 +46,17 @@ it('Should increment another counter', () => {
   expect(counters(input, action)).toEqual(output)
 })
 
+it('Should decrement a counter', () => {
+  const input = [0, 2, 2]
+  const action = { type: 'DECREMENT', index: 1 }
+  const output = [0, 1, 2]
+  expect(counters(input, action)).toEqual(output)
+})
+
+it('Should decrement another counter', () => {
+  const input = [1, 2]
+  const action = { type: 'DECREMENT', index: 1 }
+  const output = [1, 1]
+  expect(counters(input, action)).toEqual(output)
+})
+
