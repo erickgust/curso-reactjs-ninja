@@ -32,3 +32,17 @@ it('Should remove another counter', () => {
   expect(counters(input, action)).toEqual(output)
 })
 
+it('Should increment a counter', () => {
+  const input = [0, 3, 2]
+  const action = { type: 'INCREMENT', index: 0 }
+  const output = [1, 3, 2]
+  expect(counters(input, action)).toEqual(output)
+})
+
+it('Should increment another counter', () => {
+  const input = [1, 0, 1]
+  const action = { type: 'INCREMENT', index: 1 }
+  const output = [1, 1, 1]
+  expect(counters(input, action)).toEqual(output)
+})
+
