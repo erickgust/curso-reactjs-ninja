@@ -60,3 +60,18 @@ it('Should decrement another counter', () => {
   expect(counters(input, action)).toEqual(output)
 })
 
+it('Should return the same state if action is unknown', () => {
+  const input = [1, 1, 0]
+  const action = { type: 'UNKNOWN' }
+  const output = [1, 1, 0]
+  expect(counters(input, action)).toEqual(output)
+})
+
+it('Should return initial state if last state is undefined', () => {
+  const input = undefined
+  const action = {}
+  const output = []
+  expect(counters(input, action)).toEqual(output)
+})
+
+

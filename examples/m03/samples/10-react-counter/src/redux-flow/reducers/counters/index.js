@@ -1,4 +1,4 @@
-export const counters = (state, action) => {
+export const counters = (state = [], action) => {
   switch (action.type) {
     case 'ADD_COUNTER':
       return state.concat(0)
